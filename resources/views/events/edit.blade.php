@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About event')
+@section('title', "Edit $event->name")
 
 @section('content')
 
