@@ -24,6 +24,7 @@
                     <td>{{ $event->location }}</td>
                     <td>{{ $event->datetime }}</td>
                     <td>{{ $event->user->email }}</td>
+                    <td>{{ $event->is_public? 'public' : 'private' }}</td>
                     @can('view', $event)
                         @can('update', $event)
                             <td><a href='{{ route('event.edit',['id' => $event->id]) }}'>Details(Editable)</a></td>

@@ -126,25 +126,25 @@
         <form class="mt-3" method='POST'>
             @csrf
 
-            <h1>{{ $comment->body }}</h1>
-            <input name='comment'
-                   value='{{ $comment->body }}' {{ Auth::user()->cannot('update', $comment) ? 'readonly' : ''}}>
-
             @can ('update', $comment)
+                <input name='comment' value='{{ $comment->body }}'>
+
                 <button type='submit' class='btn btn-primary'
-                        formaction='{{ route('comment.update', ['id' => $comment->id]) }}'>Edit
+                        formaction='{{ route('comment.update', ['id' => $comment->id]) }}'>Edit Comment
                 </button>
-            @endcan
-            @can ('delete', $comment)
+
                 <button type='submit' class='btn btn-danger'
-                        formaction='{{ route('comment.delete', ['id' => $comment->id]) }}'>Delete
+                        formaction='{{ route('comment.delete', ['id' => $comment->id]) }}'>Delete Comment
                 </button>
+            @else
+                <h5>{{ $comment->body }}</h5>
             @endcan
+
 
             <div class="border-bottom mt-3 pb-3 mb-3">
                 <em>
                     Updated on {{ date_format($comment->updated_at,'n/j/Y') }} at
-                    {{ date_format($comment->updated_at,'G:i A') }}
+                    {{ date_format($comment->updated_at,'G:i A') }} by <b>{{ $comment->user->name }}</b>
                 </em>
             </div>
         </form>
