@@ -41,7 +41,6 @@ Route::middleware(['auth'])->group(function () {
     //Favorites
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite.index');
     Route::post('/favorites/{id}', [FavoriteController::class, 'update'])->name('favorite.update');
-    // Route::post('/favorites/{id}/delete', [FavoriteController::class, 'index'])->name('favorite.delete');
     //End Favorites
 
     //Comments
