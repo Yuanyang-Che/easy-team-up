@@ -19,7 +19,11 @@
                                name="email"
                                value="{{ old('email') }}">
                     </div>
+                    @error('email')
+                    <p class='text-danger'> {{ $message }}</p>
+                    @enderror
                 </div>
+
 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Username</label>
@@ -30,7 +34,11 @@
                                name="username"
                                value="{{ old('username') }}">
                     </div>
+                    @error('username')
+                    <p class='text-danger'> {{ $message }}</p>
+                    @enderror
                 </div>
+
 
                 <div class="form-group">
                     <label class="col-md-4 control-label">Password</label>
@@ -40,6 +48,9 @@
                                class="form-control"
                                name="password">
                     </div>
+                    @error('password')
+                    <p class='text-danger'> {{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="form-group">

@@ -20,10 +20,16 @@
                     <input type="number" class="form-control" name="lat" id='lat' readonly
                            value="{{ old('lat') ?? 34.0224 }}"/>
                 </div>
+                @error('lat')
+                <p class='text-danger'> {{ $message }}</p>
+                @enderror
                 <div class="col-md-3">
                     <input type="number" class="form-control" name="lng" id='lng' readonly
                            value="{{ old('lng') ?? -118.2851 }}">
                 </div>
+                @error('lng')
+                <p class='text-danger'> {{ $message }}</p>
+                @enderror
             </div>
         </div>
 
@@ -41,6 +47,9 @@
 
 
         <div class="form-group">
+            @error('description')
+            <p class='text-danger'> {{ $message }}</p>
+            @enderror
             <label class="col-md-4 control-label" for='description'>description</label>
             <div class="col-md-6">
                 <input type="text" class="form-control" name="description" id='description'
@@ -50,6 +59,9 @@
 
 
         <div class="form-group">
+            @error('location')
+            <p class='text-danger'> {{ $message }}</p>
+            @enderror
             <label class="col-md-4 control-label" for='location'>Location</label>
             <div class="col-md-6">
                 <input type="text" class="form-control" name="location" id='location'
@@ -59,6 +71,9 @@
 
 
         <div class="form-group">
+            @error('datetime')
+            <p class='text-danger'> {{ $message }}</p>
+            @enderror
             <label class="col-md-4 control-label" for='datetime'>Datetime</label>
             <div class="col-md-6 flatpickr">
                 <input id="datetime" name='datetime' type="text" placeholder="Select Start Date Time.." data-input
