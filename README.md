@@ -1,1 +1,1 @@
-# easy-team-up
+Final Project for USC ITP-405
