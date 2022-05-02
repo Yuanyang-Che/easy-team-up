@@ -28,7 +28,7 @@
             @enderror
 
             <hr/>
-            <label class="col-md-4 control-label" for='event'>User</label>
+            <label class="col-md-4 control-label" for='event'>Event</label>
             <select name='event' id='event' class='form-select'>
                 <option value=''>-- Select Event --</option>
                 @foreach($events as $event)
