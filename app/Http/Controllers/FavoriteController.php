@@ -14,13 +14,14 @@ class FavoriteController extends Controller
     public function index()
     {
         $favorites = Auth::user()->favorites;
-        $events = [];
-        foreach ($favorites as $favorite) {
-            if ($favorite->favorite) $events[] = $favorite->event;
-        }
+//        $events = [];
+//        foreach ($favorites as $favorite) {
+//            if ($favorite->favorite) $events[] = $favorite->event;
+//        }
 
         return view('favorites.index', [
-            'events' => $events
+            'favorites' => $favorites,
+            //'events' => $events
         ]);
     }
 

@@ -21,7 +21,7 @@ class InvitationController extends Controller
         $email = $owner->email;
         //Sends out an email to the event owner
 
-        Mail::to($email)->send(new requestInvitation($owner, $event));
+        Mail::to($email)->send(new requestInvitation(Auth::user(), $event));
 
         return redirect()
             ->back()
