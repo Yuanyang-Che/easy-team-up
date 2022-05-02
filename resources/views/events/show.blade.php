@@ -38,11 +38,13 @@
 
         <div class='row'>
             <div class="col-md-3">
-                <input type="number" class="form-control" name="lat" id='lat' readonly
+                <h6 class='form-control'>{{ $event->lat }}</h6>
+                <input style='display:none;' class="form-control" name='lat' id='lat'
                        value="{{ $event->lat }}"/>
             </div>
             <div class="col-md-3">
-                <input type="number" class="form-control" name="lng" id='lng' readonly
+                <h6 class='form-control'>{{ $event->lng }}</h6>
+                <input style='display:none;' class="form-control" name='lng' id='lng'
                        value="{{ $event->lng }}"/>
             </div>
         </div>
@@ -52,8 +54,9 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for=' title'>Title</label>
         <div class="col-md-6">
-            <input type="text" class="form-control" name="title" id='title' readonly
-                   value="{{ $event->title }}"/>
+            <h6 class='form-control'>{{ $event->title }}</h6>
+            {{--<input type="text" class="form-control" name="title" id='title' readonly--}}
+            {{--       value="{{ $event->title }}"/>--}}
         </div>
     </div>
 
@@ -61,8 +64,9 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for='description'>description</label>
         <div class="col-md-6">
-            <input type="text" class="form-control" name="description" id='description' readonly
-                   value="{{ $event->description }}"/>
+            <h6 class='form-control'>{{ $event->description }}</h6>
+            {{--<input type="text" class="form-control" name="description" id='description' readonly--}}
+            {{--       value="{{ $event->description }}"/>--}}
         </div>
     </div>
 
@@ -70,26 +74,26 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for='location'>Location</label>
         <div class="col-md-6">
-            <input type="text" class="form-control" name="location" id='location' readonly
-                   value="{{ $event->location }}"/>
+            <h6 class='form-control'>{{ $event->location }}</h6>
+            {{--<input type="text" class="form-control" name="location" id='location' readonly--}}
+            {{--       value="{{ $event->location }}"/>--}}
         </div>
     </div>
 
 
     <div class="form-group">
         <label class="col-md-4 control-label" for='datetime'>Datetime</label>
-        <div class="col-md-6 flatpickr">
-            <input id="datetime" name='datetime' type="text" placeholder="Select Start Date Time.." data-input readonly
-                   value='{{ $event->datetime }}'/>
+        <div class="col-md-6">
+            <h6 class='form-control'>{{ $event->datetime }}</h6>
         </div>
+
     </div>
 
     <div class="form-group">
-        <label class="col-md-2 control-label" for='is_public'>Is public</label>
-        <div class='col-md-1'>
-            <input id="is_public" name='is_public' type="checkbox" readonly
-            {{ $event->is_public ? "checked" : '' }}'/>
+        <div class="col-md-6">
+            <h6 class='form-control'>{{ $event->is_public ? 'Public Event' : 'Private Event' }}</h6>
         </div>
+
     </div>
 
     @if (session('comment-success'))
@@ -150,19 +154,8 @@
 @endsection
 
 @section('script')
+
     <script>
-        flatpickr('#datetime', {
-            // inline: true,
-            mode: "range",
-            minDate: "today",
-
-            altInput: true,
-            altFormat: "F j, Y H:i",
-
-            enableTime: true,
-            dateFormat: "Y-m-d H:i",
-        });
-
         function initMap() {
             const myLatLng = {
                 lat: document.querySelector('#lat').value * 1.0,
@@ -177,7 +170,6 @@
             new google.maps.Marker({
                 position: myLatLng,
                 map,
-                title: document.querySelector('#location').innerText,
             });
         }
 

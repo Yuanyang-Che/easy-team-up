@@ -39,16 +39,14 @@
 
             <div class='row'>
                 <div class="col-md-3">
-                    <input type="number" class="form-control" name="lat" id='lat'
-
+                    <input class="form-control" name="lat" id='lat'
                            value="{{ old('lat') ?? $event->lat }}"/>
                 </div>
                 @error('lat')
                 <p class='text-danger'> {{ $message }}</p>
                 @enderror
                 <div class="col-md-3">
-                    <input type="number" class="form-control" name="lng" id='lng'
-
+                    <input class="form-control" name="lng" id='lng'
                            value="{{ old('lng') ?? $event->lng }}">
                 </div>
                 @error('lng')
@@ -222,7 +220,6 @@
                 position: myLatLng,
                 map,
                 draggable: true,
-                title: document.querySelector('#location').innerText,
             });
 
             marker.addListener('drag', function (event) {

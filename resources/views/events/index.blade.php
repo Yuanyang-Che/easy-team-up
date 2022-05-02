@@ -3,8 +3,8 @@
 @section('title', 'Events')
 
 @section('content')
-    @empty($events)
-        <h3>There are no events yet.</h3>
+    @if($events->isEmpty())
+        <h3>There are no events yet. <a href='{{ route('event.create') }}'>Create your event.</a></h3>
     @else
         <table class='table'>
             <tr>

@@ -3,8 +3,8 @@
 @section('title', 'Favorites')
 
 @section('content')
-    @empty($favorites)
-        <h3>You have no favorites yet.</h3>
+    @if($favorites->isEmpty())
+        <h3>You have no favorites yet. <a href='{{ route('event.index') }}'>Find some event to favorite.</a></h3>
     @else
         <table class='table'>
             <tr>
@@ -20,8 +20,7 @@
                 <tr>
                     <td>{{ $favorite->event->id }}</td>
                     <td>{{ $favorite->event->title }}</td>
-
-                    <td>{{ $favorite->event->user->email }}</td>
+                    <td>{{ $favorite->event->user->name }}</td>
                     <td>{{ $favorite->event->is_public? 'public' : 'private' }}</td>
                     @can('view', $favorite->event)
                         @can('update', $favorite->event)
@@ -40,5 +39,5 @@
 
             @endforeach
         </table>
-    @endempty
+    @endif
 @endsection
